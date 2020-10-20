@@ -1,0 +1,36 @@
+'''
+    SIMPLE TITLE SCRAPING EXAMPLE
+
+    def parse(self, response):
+        title = response.css('title::text').extract() # what tag do we want in the source code page
+        yield {'titletext':title} # yield instead of return for generator
+
+
+    CSS SELECTORS
+
+    In pycharm terminal enter > scrapy shell "http://quotes.toscrape.com/"
+
+    response.css('span.text').extract() - for class in span/div
+    response.css('span#id').extract() - for id
+
+    Using xpath:
+    response.xpath("//title/text()").extract()
+    response.xpath("//span[@class='text']/text()").extract()
+
+    Combination of both:
+    response.css("li.next a").xpath("@href").extract() # to get next page (extracting the value of a tag)
+
+
+    SCRAPING A SET OF ITEMS IN AN ORGANIZED FORM
+
+
+    TERMINAL COMMANDS:
+
+    We are here       - C:\Users\shivani\PycharmProjects\quotetutorial>quotetutorial>spiders>quotes_spider.py
+    Run commands here - C:\Users\shivani\PycharmProjects\quotetutorial>
+
+    > scrapy crawl quotes                                   # to scrape/crawl
+    > scrapy shell "http://quotes.toscrape.com/"            # to enter scrapy terminal / enter into the source code to try css selectors and xpath
+    > scrapy crawl quotes -o items.csv/item.xml/items.json  # to save the item container into an output file
+
+'''
